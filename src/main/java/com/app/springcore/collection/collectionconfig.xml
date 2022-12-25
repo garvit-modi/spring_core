@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframwork.org/schema/context"
+	xmlns:p="http://www.springframwork.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+         https://www.springframework.org/schema/context
+         https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+
+	<!-- This is our bean -->
+	<bean class=" com.app.springcore.collection.Employee"
+		name="empOne">
+
+		<!-- Injecting value -->
+		<property name="name" value="Garvit" />
+
+		<property name="phone">
+
+			<list>
+				<value>12345678</value>
+				<value>765432</value>
+				<value>23456765</value>
+				<value>9876543</value>
+				<null></null>
+				<null></null>
+			</list>
+		</property>
+
+		<property name="address">
+
+			<set>
+				<value>Delhi</value>
+				<value>Delhi</value>
+				<value>Jaipur</value>
+				<value>Raj</value>
+				<null></null>
+				<null></null>
+			</set>
+		</property>
+
+		<property name="course">
+
+			<map>
+
+				<entry key="java" value="1.5months" />
+				<entry key="c" value="2months" />
+				<entry key="c++" value="1.5months" />
+
+			</map>
+		</property>
+
+
+		<property name="props">
+			<props>
+				<prop key="name">Garvit</prop>
+				<prop key="designation">Developer</prop>
+			</props>
+
+		</property>
+
+
+
+
+
+	</bean>
+
+
+
+
+</beans>

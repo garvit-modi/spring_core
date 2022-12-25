@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframwork.org/schema/context"
+	xmlns:p="http://www.springframwork.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+         https://www.springframework.org/schema/context
+         https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<!-- This is our bean -->
+	<bean class="com.app.springcore.ref.B" name="bref" p:y="12" />
+
+
+
+	<bean class="com.app.springcore.ref.A" name="aref" p:obj-ref="bref" p:x="432" />
+	
+	<!--Create bean using construction injection  -->
+	<bean class="com.app.springcore.ref.B" name="brefOne">
+	<constructor-arg value="45"/>
+	</bean>
+	
+	<!--Create bean using construction injection  -->
+	<bean class="com.app.springcore.ref.A" name="arefOne">
+	<constructor-arg ref="brefOne" index="0"/>
+	<constructor-arg value="45" index="1"/>
+	
+	</bean>
+	
+	
+	
+	<!-- This is our bean <bean class="com.app.springcore.ref.A" name="aref"> 
+		Injecting value <property name="x" value="12345" /> <property name="obj" 
+		> <ref bean="bref"/> </property> <property name="obj" ref=""/> </bean> -->
+
+
+
+</beans>
