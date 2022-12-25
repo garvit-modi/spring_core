@@ -16,6 +16,8 @@
 
 	<bean class="com.app.springcore.ref.A" name="aref" p:obj-ref="bref" p:x="432" />
 	
+	
+	
 	<!--Create bean using construction injection  -->
 	<bean class="com.app.springcore.ref.B" name="brefOne">
 	<constructor-arg value="45"/>
