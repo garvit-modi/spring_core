@@ -3,6 +3,8 @@
  */
 package com.app.springcore.ref;
 
+import javax.annotation.*;
+
 /**
  * @author garvitkhandelwal
  *
@@ -25,7 +27,9 @@ public class B {
 	 * @param y
 	 */
 	public B(int y) {
+		
 		super();
+		System.out.println("Class B ->Setting values");
 		this.y = y;
 	}
 
@@ -50,14 +54,36 @@ public class B {
 	}
 	
 	
+	//Implementing bean life cycle using xml
 	void init()
 	{
-		System.out.println("init call");
+		System.out.println("Class B ->init call call using xml");
 	}
 	
-	
+	//Implementing bean life cycle using xml
 	void destroy() {
-		System.out.println("destroy call");
+		System.out.println("Class B ->destroy call using xml");
 	}
+	
+	
+	
+
+	
+	//Implementing bean life cycle using annotation
+	@PostConstruct
+	void start()
+	{
+		System.out.println("Class B ->init call call using annotation");
+	}
+	
+	//Implementing bean life cycle using annotation
+	@PreDestroy
+	void end() {
+		System.out.println("Class B ->destroy call using annotation");
+	}
+	
+	
+	
+	
 
 }

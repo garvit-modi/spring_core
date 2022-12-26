@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframwork.org/schema/context"
-	xmlns:p="http://www.springframwork.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-        https://www.springframework.org/schema/beans/spring-beans.xsd
-         https://www.springframework.org/schema/context
-         https://www.springframework.org/schema/context/spring-context.xsd">
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context.xsd">
 
 
+<!-- This line is used to enable all anna  -->
+ <context:annotation-config/> 
+ 
+<!-- Only use to enable PostContruct and PreDestroy annotation -->
+	<!-- <bean  class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/> -->
+ 
 	<!-- This is our bean -->
 	<bean class="com.app.springcore.ref.B" name="bref" p:y="12" />
 
@@ -19,7 +25,7 @@
 	
 	
 	<!--Create bean using construction injection  -->
-	<bean class="com.app.springcore.ref.B" name="brefOne">
+	<bean class="com.app.springcore.ref.B" name="brefOne" init-method="init" destroy-method="destroy">
 	<constructor-arg value="45"/>
 	</bean>
 	

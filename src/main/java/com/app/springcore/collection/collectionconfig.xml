@@ -3,12 +3,38 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframwork.org/schema/context"
 	xmlns:p="http://www.springframwork.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd
          https://www.springframework.org/schema/context
-         https://www.springframework.org/schema/context/spring-context.xsd">
+         https://www.springframework.org/schema/context/spring-context.xsd 
+           http://www.springframework.org/schema/util
+                           http://www.springframework.org/schema/util/spring-util.xsd">
 
 
+	<!-- Spring Stand alone Collections -->
+
+	<util:list list-class="java.util.LinkedList" id="phnNo">
+		<value>Delhi</value>
+		<value>Jaipur</value>
+	</util:list>
+	
+	
+	<util:set set-class="java.util.LinkedHashSet" id="address">
+		<value>9312552334</value>
+		<value>8723546787</value>
+	</util:set>
+	
+	
+	<util:map map-class="java.util.TreeMap" id="courses">
+		<entry key="Django" value="2" />
+		<entry key="Bootstrap" value="1" />
+	</util:map>
+
+<util:properties id="props">
+<prop key="testingOne">valueOne</prop>
+<prop key="testingTwo">valueTwo</prop>
+</util:properties>
 
 	<!-- This is our bean -->
 	<bean class=" com.app.springcore.collection.Employee"
@@ -17,16 +43,19 @@
 		<!-- Injecting value -->
 		<property name="name" value="Garvit" />
 
-		<property name="phone">
+<!-- Self closing tag -->
+<!-- <property name="phone" ref="phnNo"/> -->
 
-			<list>
+		<property name="phone">
+<ref bean="phnNo"/>
+			<!-- <list>
 				<value>12345678</value>
 				<value>765432</value>
 				<value>23456765</value>
 				<value>9876543</value>
 				<null></null>
 				<null></null>
-			</list>
+			</list> -->
 		</property>
 
 		<property name="address">
@@ -53,14 +82,15 @@
 		</property>
 
 
-		<property name="props">
+		<property name="props" ref="props" />
+		<!-- <property name="props">
 			<props>
 				<prop key="name">Garvit</prop>
 				<prop key="designation">Developer</prop>
 			</props>
 
 		</property>
-
+ -->
 
 
 
